@@ -1,2 +1,3 @@
 # Christmas-Card
-Css, JavaScript
+
+My Christmas Card animation playground!
