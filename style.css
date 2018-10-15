@@ -1,17 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Charmonman');
+
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Base Layer//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
 .slideContainer{
-	display: none;
-	-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 2s; /* Firefox < 16 */
-        -ms-animation: fadein 2s; /* Internet Explorer */
-         -o-animation: fadein 2s; /* Opera < 12.1 */
-            animation: fadein 2s;
+	animation-name: slideHide;
+	animation-duration: 2s; 
+	animation-fill-mode: forwards;
 }
 
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Snowflakes//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 .snowflakes {
-	background-color: lightblue;
+	background: #3f4c6b; 
+	background: -moz-linear-gradient(top, #3f4c6b 0%, #3f4c6b 100%); 
+	background: -webkit-linear-gradient(top, #3f4c6b 0%,#3f4c6b 100%); 
+	background: linear-gradient(to bottom, #3f4c6b 0%,#3f4c6b 100%); ;
 	width: 100%; 
 	height: 100%;
 	position: absolute; 
@@ -43,20 +46,6 @@ p:after, p:before {
 	-webkit-transform: rotate(120deg);
 }
 p:before { -webkit-transform: rotate(240deg); }
-
-@-webkit-keyframes snowflakes {
-	0% {
-		-webkit-transform: translate3d(0,0,0) rotate(0deg) scale(0.6);
-	}
-	100% {
-		-webkit-transform: translate3d(15px, 1200px, 0px) rotate(360deg) scale(0.6);
-	};
-}
-
-@keyframes fadein {
-    0% { opacity: 0; }
-    100%  { opacity: 1; }
-}
 
 .snowflakes p:nth-child(3n) {
 	width: 16px; height: 4px;
@@ -117,7 +106,6 @@ p:before { -webkit-transform: rotate(240deg); }
 }
 
 
-
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Merry Christmas text//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 .textContainer{
@@ -142,22 +130,9 @@ p:before { -webkit-transform: rotate(240deg); }
     -webkit-background-clip: text;
 }
 .text{
-		animation: Gradient 5s ease infinite;
-		-webkit-animation: Gradient 15s ease infinite;
-		-moz-animation: Gradient 5s ease infinite;
-}
-
-@-webkit-keyframes Gradient {
-	0% {
-		background-position: 30% 50%
-	}
-	50% {
-		background-position: 25% 50%
-	}
-	100% {
-		background-position: 30% 50%
-	}
-	
+		animation: textGradient 5s ease infinite;
+		-webkit-animation: textGradient 15s ease infinite;
+		-moz-animation: textGradient 5s ease infinite;
 }
 
 
@@ -207,8 +182,11 @@ p:before { -webkit-transform: rotate(240deg); }
 	position: relative;
 	animation-name: movecloud;
 	animation-timing-function: linear;
-	animation: movecloud 2s infinite;
+	animation-duration: 2s; 
 	animation-direction: alternate;
+	animation-iteration-count: infinite;
+	animation-play-state: running;
+	animation-delay: 0;
 	
 }
  .j, .k, .l, .m, .n, .o, .p{
@@ -224,6 +202,98 @@ p:before { -webkit-transform: rotate(240deg); }
 }
 
 
+/*///////////////////////////////////////////////////////////////////////////////////////////////Christmas Tree//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+.christmasTree{
+	background-image: url("choinka.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+	width: 400px;
+	height: 600px;
+	position: absolute;
+	overflow: hidden;
+	top: 30%;
+	left: 65%;
+	transform: rotate(10deg);
+	
+}
+
+.christmasTreeTwo{
+	background-image: url("choinka.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+	width: 400px;
+	height: 600px;
+	position: absolute;
+	top: 30%;
+	left: 5%;
+	overflow: hidden;
+	transform: rotate(-10deg);
+	
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////Hide Christmas Card//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.exitBtn{
+	width: 150px;
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	left: 90%;
+	top: 85%;
+	border: none;
+	background-color: Transparent;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	overflow: hidden;
+	outline: none;
+	transition-duration: 0.4s;
+	transform: rotate(45deg);
+	padding: 0;
+	font-size: 100px;
+	font-weight: bold;
+	border-radius: 50%;
+	
+}
+
+.exitBtn:hover{
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+}
+
+.hide{
+	display: none;
+}
+
+.show{
+	opacity: 1;
+	animation-fill-mode: none;
+}
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////All Animations//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+@-webkit-keyframes snowflakes {
+	0% {-webkit-transform: translate3d(0,0,0) rotate(0deg) scale(0.6);}
+	100% {-webkit-transform: translate3d(15px, 1200px, 0px) rotate(360deg) scale(0.6);};
+}
+
+@keyframes fadein {
+    0% { opacity: 0; }
+    100%  { opacity: 1; }
+}
+
+@-webkit-keyframes textGradient {
+	0% {background-position: 30% 50%}
+	50% {background-position: 25% 50%}
+	100% {background-position: 30% 50%}
+}
 
 @keyframes movecloud {
     0% { top: 0; }
@@ -235,21 +305,8 @@ p:before { -webkit-transform: rotate(240deg); }
     100%  { top: -20px; }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@keyframes slideHide{
+	0% {opacity: 1;}
+	50% {opacity: 0.5;}
+	100% {opacity: 0;}
+}
