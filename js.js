@@ -1,4 +1,5 @@
 
+
 var style = document.createElement('link');
 style.rel = "stylesheet"
 style.type = 'text/css';
@@ -13,6 +14,8 @@ var textContainer = document.createElement("DIV");
 var text = document.createElement("h1");
 var cloud = document.createElement("DIV");
 var cloudContainer = document.createElement("DIV");
+var christmasTree = document.createElement("DIV");
+var christmasTree2 = document.createElement("DIV");
 var cloud1 = document.createElement("Div");
 var cloud2 = document.createElement("Div");
 var cloud3 = document.createElement("Div");
@@ -22,7 +25,6 @@ var cloud6 = document.createElement("Div");
 var cloud7 = document.createElement("Div");
 var cloud8 = document.createElement("Div");
 var cloud9 = document.createElement("Div");
-
 var cloudContainer2 = document.createElement("DIV");
 var cloud10 = document.createElement("Div");
 var cloud11 = document.createElement("Div");
@@ -32,7 +34,12 @@ var cloud14 = document.createElement("Div");
 var cloud15 = document.createElement("Div");
 var cloud16 = document.createElement("Div");
 var cloud17 = document.createElement("Div");
+var exitBtn = document.createElement("button");
 
+exitBtn.classList.add("exitBtn");
+exitBtn.innerHTML = "+"
+christmasTree.classList.add("christmasTree");
+christmasTree2.classList.add("christmasTreeTwo");
 cloud.classList.add("cloud");
 cloudContainer.classList.add("cloudContainer");
 cloud1.classList.add("a");
@@ -58,10 +65,13 @@ cloud17.classList.add("r");
 container.classList.add("snowflakes");
 text.classList.add("text");
 textContainer.classList.add("textContainer");
-text.innerHTML = "Merry Christmas <br> from <br> E-learning  Team <br> Poland!";
+text.innerHTML = "Merry Christmas <br> <br> ";
 
+container.appendChild(exitBtn);
 container.appendChild(textContainer);
 container.appendChild(cloud);
+container.appendChild(christmasTree);
+container.appendChild(christmasTree2);
 cloud.appendChild(cloudContainer);
 cloud.appendChild(cloudContainer2);
 textContainer.appendChild(text);
@@ -97,4 +107,9 @@ for(var i = 0; i < snowflakes.length; i++){
 	p.index = snowflakes[i];
 	container.appendChild(p);
 }
+
+document.querySelector(".exitBtn").addEventListener("click", function(){
+    container.classList.add("hide");
+	slideContainer.classList.add("show");
+});
 
